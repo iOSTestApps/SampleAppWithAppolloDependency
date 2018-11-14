@@ -154,7 +154,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7ADE49E3219CA2F2000463DA /* Build configuration list for PBXNativeTarget "SampleAppWithAppolloDependency" */;
 			buildPhases = (
-				7ADE4A03219CA395000463DA /* ShellScript */,
 				7ADE49CD219CA2F0000463DA /* Sources */,
 				7ADE49CE219CA2F0000463DA /* Frameworks */,
 				7ADE49CF219CA2F0000463DA /* Resources */,
@@ -279,26 +278,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7ADE4A03219CA395000463DA /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=schema.json API.swift\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7ADE49CD219CA2F0000463DA /* Sources */ = {
